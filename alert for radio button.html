@@ -1,0 +1,51 @@
+<html>
+<body>
+<form>
+ <input name="gender" id="male" value="male" type="radio">
+ <span class="radio"></span> Male
+ <input name="gender" id="female" value="female" type="radio">
+ <span class="radio"></span> Female
+ 
+ <input name="status" id="single" value="single" type="radio">
+  <span class="radio"></span> Single
+  <input name="status" id="married" value="married" type="radio">
+  <span class="radio"></span> Married
+  <input name="status" id="divorce" value="divorce" type="radio">
+  <span class="radio"></span> Divorce
+  <input name="status" id="separated" value="separated" type="radio">
+  <span class="radio"></span> Separated
+  
+<input type="submit" onclick="return chk();">
+</form>
+</body>
+</html>
+<script>
+function chk() {
+
+//radio button validation ---start
+        var option = getRVBN('gender');
+        if (option == '') {
+            alert("Pls Select Sex");
+            return false;
+        }
+        var option = getRVBN('status');
+        if (option == '') {
+            alert("Pls Select status");
+            return false;
+        }
+
+        function getRVBN(rName) {
+            var radioButtons = document.getElementsByName(rName);
+            for (var i = 0; i < radioButtons.length; i++) {
+                if (radioButtons[i].checked) {
+                    // console.log(radioButtons[i].value);
+                    return radioButtons[i].value;
+                } else {
+                    return '';
+                }
+            }
+
+        }
+        //radio button validation ---end
+        }
+</script>
